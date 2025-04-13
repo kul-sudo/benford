@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+json = "0.12.4"
 plotters = { version = "0.3.7", features = ["histogram"] }
 termion = "4.0.5"
