@@ -25,7 +25,7 @@ pub fn walk_dir(statistics: &mut [u128; 10], starting_dir: &OsStr) {
 
 pub fn file_size() {
     let mut statistics: [u128; 10] = [0; 10];
-    walk_dir(&mut statistics, &OsStr::new("/home/user/tmp"));
+    walk_dir(&mut statistics, OsStr::new("/home/user/tmp"));
 
     let files_n = statistics[1..].iter().sum::<u128>();
     println!("Files N: {}", files_n);
