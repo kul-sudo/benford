@@ -16,9 +16,8 @@ pub fn walk_dir(statistics: &mut [u128; 10], starting_dir: &OsStr) {
                 .chars()
                 .next()
                 .unwrap()
-                .to_string()
-                .parse::<usize>()
-                .unwrap()] += 1;
+                .to_digit(10)
+                .unwrap() as usize] += 1;
         }
     }
 }

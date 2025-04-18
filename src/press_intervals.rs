@@ -28,9 +28,8 @@ pub fn press_intervals() {
                 .chars()
                 .next()
                 .unwrap()
-                .to_string()
-                .parse::<usize>()
-                .unwrap()] += 1;
+                .to_digit(10)
+                .unwrap() as usize] += 1;
 
             last_press_timestamp = Instant::now();
         }

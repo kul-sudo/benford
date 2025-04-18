@@ -6,4 +6,5 @@ edition = "2024"
 [dependencies]
 json = "0.12.4"
 plotters = { version = "0.3.7", features = ["histogram"] }
+rand = "0.9.1"
 termion = "4.0.5"

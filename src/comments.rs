@@ -17,17 +17,15 @@ pub fn comments() {
                 .chars()
                 .next()
                 .unwrap()
-                .to_string()
-                .parse::<usize>()
-                .unwrap()] += 1;
+                .to_digit(10)
+                .unwrap() as usize] += 1;
         }
     };
 
+    let sum = statistics.iter().sum::<u128>();
     save_histogram(
         10,
-        statistics
-            .map(|x| x as f64 / statistics.iter().sum::<u128>() as f64)
-            .to_vec(),
+        statistics.map(|x| x as f64 / sum as f64).to_vec(),
         "comments.png",
     )
     .unwrap();

@@ -6,22 +6,25 @@ pub fn save_histogram(
     data: Vec<f64>,
     output_file: &str,
 ) -> Result<(), Box<dyn std::error::Error>> {
-    let benford_predictions = (1..base).map(|d| {
-        (
-            d,
-            ((((d + 1) as f64).log(base as f64) - (d as f64).log(base as f64)) * 100.0).round()
-                as u32,
-        )
-    });
+    let benford_predictions = (1..base)
+        .map(|d| {
+            (
+                d,
+                ((((d + 1) as f64).log(base as f64) - (d as f64).log(base as f64)) * 100.0).round()
+                    as u32,
+            )
+        })
+        .collect::<Vec<_>>();
 
     let data = data
         .iter()
         .enumerate()
-        .map(|(index, x)| (index as u32, (*x * 100.0).round() as u32));
+        .map(|(index, x)| (index as u32, (*x * 100.0).round() as u32))
+        .collect::<Vec<_>>();
 
-    let benford_max = benford_predictions.clone().map(|(_, x)| x).max().unwrap();
-    let data_max = data.clone().map(|(_, x)| x).max().unwrap();
-    let max = benford_max.max(data_max);
+    let benford_max = benford_predictions.iter().map(|(_, x)| x).max().unwrap();
+    let data_max = data.iter().map(|(_, x)| x).max().unwrap();
+    let max = benford_max.max(&data_max);
 
     let root = BitMapBackend::new(output_file, (640, 480)).into_drawing_area();
 
