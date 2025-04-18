@@ -1,5 +1,5 @@
 use crate::histogram::save_histogram;
-use std::{fs::read_to_string, io::stdin};
+use std::fs::read_to_string;
 
 const UNIT_IN_KM: f64 = 50.0;
 

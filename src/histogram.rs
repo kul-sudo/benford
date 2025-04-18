@@ -24,7 +24,7 @@ pub fn save_histogram(
 
     let benford_max = benford_predictions.iter().map(|(_, x)| x).max().unwrap();
     let data_max = data.iter().map(|(_, x)| x).max().unwrap();
-    let max = benford_max.max(&data_max);
+    let max = benford_max.max(data_max);
 
     let root = BitMapBackend::new(output_file, (640, 480)).into_drawing_area();
 

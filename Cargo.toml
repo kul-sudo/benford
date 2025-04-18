@@ -4,7 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+dasp = "0.11.0"
 json = "0.12.4"
 plotters = { version = "0.3.7", features = ["histogram"] }
 rand = "0.9.1"
+symphonia = "0.5.4"
 termion = "4.0.5"

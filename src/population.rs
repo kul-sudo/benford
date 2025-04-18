@@ -1,5 +1,5 @@
 use crate::histogram::save_histogram;
-use std::{fs::read_to_string, io::stdin};
+use std::fs::read_to_string;
 
 pub fn population() {
     let contents = read_to_string("data/population").unwrap();
