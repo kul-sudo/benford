@@ -7,7 +7,7 @@ use symphonia::core::io::MediaSourceStream;
 use symphonia::core::meta::MetadataOptions;
 use symphonia::core::probe::Hint;
 
-const FILE_NAME: &str = "data/keyboard.wav";
+const FILE_NAME: &str = "data/silence.wav";
 
 pub fn calculate_rms(samples: &[f32]) -> f32 {
     let sum_of_squares: f32 = samples.iter().map(|&x| x.powi(2)).sum();
