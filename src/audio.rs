@@ -1,11 +1,11 @@
 use crate::histogram::save_histogram;
+use std::fs::File;
 use symphonia::core::audio::SampleBuffer;
 use symphonia::core::codecs::{CODEC_TYPE_NULL, DecoderOptions};
 use symphonia::core::formats::FormatOptions;
 use symphonia::core::io::MediaSourceStream;
 use symphonia::core::meta::MetadataOptions;
 use symphonia::core::probe::Hint;
-use std::{io::Write, fs::File};
 
 const FILE_NAME: &str = "data/keyboard.wav";
 
@@ -74,7 +74,7 @@ pub fn audio() {
     save_histogram(
         10,
         statistics.map(|x| x as f64 / sum as f64).to_vec(),
-        "rms.png",
+        "audio.png",
     )
     .unwrap();
 }
